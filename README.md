@@ -9,10 +9,10 @@
 ## - Features -
 
 ### a. View the locations on the map
-- You can see the pins on the google map after loading the page.
+- You can see the pins of the restaurants on the google map when you access to the page(url).
 
 ### b. See for more information of the restaurant
-- By clicking the marker of the pin, you can see for more information of the restaurant.
+- By clicking the pin, you can see for more information of the restaurant.
 
 ### c. Changing the category of the restaurant
 - At the top left, there is a drop down button that you can choose what type of restaurant to display on the map.
