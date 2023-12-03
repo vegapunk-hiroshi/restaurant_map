@@ -1,26 +1,28 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import {initMap} from './maps/maps'
+import {initMap, filterRestaurants} from './maps/maps'
 const res = initMap();
 res.then((e)=> {
-  console.log('map read', e)
+  console.log('map read', e);
 });
-console.log('maps loading... 2', res);
+
+function filter() {
+  filterRestaurants();
+}
+
 </script>
 
 <template>
-  <!-- <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div id="filter-panel">
+    <label for="type-select">Choose a restaurant type:</label>
+    <select id="type-select" @change="filter">
+        <option value="all">All</option>
+        <option value="Italian">Italian</option>
+        <option value="Japanese">Japanese</option>
+        <option value="Fast Food">Fast Food</option>
+    </select>
   </div>
-  <HelloWorld msg="Vite + Vue" /> -->
 
   <div id="map"></div>
-  <!-- <div id="test">ESSSSSSSSSSSSSST</div> -->
 </template>
 
 <style scoped>

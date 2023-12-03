@@ -62,7 +62,18 @@ async function initMap() {
         });
         return marker
     }
-
 }
 
-export {initMap}
+function filterRestaurants() {
+    const selectedType = document.getElementById('type-select').value;
+
+    markers.forEach(marker => {
+        if (selectedType === 'all' || marker.restaurantType === selectedType) {
+            marker.setVisible(true);
+        } else {
+            marker.setVisible(false);
+        }
+    });
+}
+
+export {initMap, filterRestaurants}
