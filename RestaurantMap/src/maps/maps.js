@@ -3,8 +3,6 @@
 let map, markers = [];
 
 async function initMap() {
-    console.log('maps loading...')
-
     // The location of Uluru
     const position = { lat: -25.344, lng: 131.031 };
     // Request needed libraries.
@@ -30,10 +28,8 @@ async function initMap() {
     var service = new google.maps.places.PlacesService(map);
 
     service.findPlaceFromQuery(request, function(results, status) {
-        console.log('result', results)
         if (status === google.maps.places.PlacesServiceStatus.OK) {
             for (var i = 0; i < results.length; i++) {
-                console.log('results', i)
                 const m = createMarker(results[i]);
                 markers.push(m);
             }
@@ -62,6 +58,46 @@ async function initMap() {
         });
         return marker
     }
+
+    // Direction API
+    let direction = new google.maps.DirectionsService();
+    let directionsRenderer = new google.maps.DirectionsRenderer();
+
+    // Current Location
+    const locationButton = document.createElement("button");
+    locationButton.textContent = "Show me the route to the restaurant";
+    locationButton.classList.add("custom-map-control-button");
+    map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+    locationButton.addEventListener("click", () => {
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude,
+                    };
+
+                    direction.route({
+                        origin: pos,
+                        destination: markers[0].position,
+                        travelMode: 'WALKING',
+                    }, function(result, status) {
+                        if (status == 'OK') {
+                          directionsRenderer.setDirections(result);
+                        }
+                    });
+                    directionsRenderer.setMap(map);
+                },
+                () => {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                },
+            );
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
+    });
 }
 
 function filterRestaurants() {
