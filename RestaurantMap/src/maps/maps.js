@@ -22,6 +22,47 @@ async function initMap() {
     });
 
 
+    var request = {
+        query: 'restaurants in Tokyo',
+        fields: ['ALL'],
+    };
 
+    var service = new google.maps.places.PlacesService(map);
+
+    service.findPlaceFromQuery(request, function(results, status) {
+        console.log('result', results)
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+                console.log('results', i)
+                const m = createMarker(results[i]);
+                markers.push(m);
+            }
+            map.setCenter(results[0].geometry.location);
+        }
+    });
+
+
+    function createMarker(place) {
+        if (!place.geometry || !place.geometry.location) return;
+
+        const marker = new google.maps.Marker({
+            map,
+            position: place.geometry.location,
+        });
+
+        let infoWindow = new google.maps.InfoWindow();
+        infoWindow.setPosition(place.geometry.location);
+        infoWindow.setContent(`${place.name},\n ${place.formatted_address},\n ${place.website},\n ${place.opening_hours}` || "");
+
+        google.maps.event.addListener(marker, "click", () => {
+            infoWindow.open({
+                anchor: marker,
+                map
+            });
+        });
+        return marker
+    }
+
+}
 
 export {initMap}
