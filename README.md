@@ -1,7 +1,28 @@
-# Vue 3 + Vite
+# Restaurant Map 
+## - How to start the server - 
+1. Change the API key of the script tag inside the index.html
+2. Make sure you allow Google Maps Place, Direction, JavaScript API
+2. npm install in the root directory
+3. npm run dev in the root directory
+4. Go to http://localhost:5174/ from your browser
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## - Features -
 
-## Recommended IDE Setup
+### a. View the locations on the map
+- You can see the pins on the google map after loading the page.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+### b. See for more information of the restaurant
+- By clicking the marker of the pin, you can see for more information of the restaurant.
+
+### c. Changing the category of the restaurant
+- At the top left, there is a drop down button that you can choose what type of restaurant to display on the map.
+
+### d. The route to the restaurant from the current location
+- At the top middle inside the map, there is a button that shows that route to the restaurant from the current location.
+
+
+## - Major Libraries -
+
+- Google Maps API
+- Vue 3
+- Vite
