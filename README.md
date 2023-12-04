@@ -1,4 +1,5 @@
 # Restaurant Map 
+![app](image.png)
 ## - How to start the server - 
 1. Change the API key of the script tag inside the index.html
 2. Make sure you allow Google Maps Place, Direction, JavaScript API in the Google Maps Platform
