@@ -12,9 +12,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 } */
-#test {
-  color: blue;
-  font-size: 100px;
+#filter-panel {
+  border: solid;
+  font-size: 19px;
+  width: 300px;
+  margin: 10px;
+  padding: 5px;
 }
 
 #map {

@@ -1,7 +1,7 @@
 # Restaurant Map 
 ## - How to start the server - 
 1. Change the API key of the script tag inside the index.html
-2. Make sure you allow Google Maps Place, Direction, JavaScript API
+2. Make sure you allow Google Maps Place, Direction, JavaScript API in the Google Maps Platform
 2. npm install in the root directory
 3. npm run dev in the root directory
 4. Go to http://localhost:5174/ from your browser
@@ -26,3 +26,16 @@
 - Google Maps API
 - Vue 3
 - Vite
+
+
+## why you chose the methods
+- Vite and VueJS is light-weight Front End tool. It can build a project very fast, flexibly, and easily.
+- Seperating the file with the code of Google maps API and using JavaScript module makes much cleaner to file structure.
+
+## where you see limitations
+Restaurant type
+
+## how you would improve the application in the future.
+- The route function should be able to specify which restaurant the user want to be navigated to.
+- More beatiful layout and buttons.
+- 
