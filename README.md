@@ -34,7 +34,7 @@
 - Seperating the file with the code of Google maps API and using JavaScript module makes much cleaner to file structure.
 
 ## where you see limitations
-Restaurant type
+- Couldn't find the restaurant type from Place API.
 
 ## how you would improve the application in the future.
 - The route function should be able to specify which restaurant the user want to be navigated to.
